@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Courses</title>
+</head>
+<body>
+    <h1>All Courses</h1>
+    <table border="1">
+        <tr>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course['course_id'] }}</td>
+            <td>{{ course['name'] }}</td>
+            <td>{{ course['category'] }}</td>
+            <td>
+                <form action="/delete_course/{{ course['course_id'] }}" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Back to Dashboard</a>
+</body>
+</html>
